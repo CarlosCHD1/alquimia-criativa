@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alquimia Criativa - AI Suite</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            neon: {
+              DEFAULT: 'var(--color-neon)',
+              light: 'var(--color-neon-light)',
+              dark: '#CC4C00',
+              glow: 'var(--color-neon-glow)'
+            },
+            base: {
+              black: 'var(--bg-base-black)',
+              dark: 'var(--bg-base-dark)',
+              card: 'var(--bg-base-card)',
+              border: 'var(--border-base)'
+            },
+            neutral: {
+              // Override neutral colors to adapt to light mode text
+              400: 'var(--text-secondary)',
+              500: 'var(--text-tertiary)',
+              600: 'var(--text-quaternary)'
+            }
+          },
+          textColor: {
+            white: 'var(--text-primary)',
+          },
+          fontFamily: {
+            mono: ['"JetBrains Mono"', 'monospace'],
+            sans: ['"Titillium Web"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      /* Light Mode Variables (Beige/Black/Orange) */
+      --bg-base-black: #F5F5F0;
+      --bg-base-dark: #EBEBE6;
+      --bg-base-card: #FFFFFF;
+      --border-base: #E5E5E0;
+
+      --text-primary: #1A1A1A;
+      --text-secondary: #4A4A45;
+      --text-tertiary: #7A7A75;
+      --text-quaternary: #A3A39E;
+
+      --color-neon: #FF5F00;
+      --color-neon-light: #FF7F30;
+      --color-neon-glow: rgba(255, 95, 0, 0.3);
+    }
+
+    .dark {
+      /* Dark Mode Variables (Original) */
+      --bg-base-black: #050505;
+      --bg-base-dark: #0A0A0A;
+      --bg-base-card: #121212;
+      --border-base: #2A2A2A;
+
+      --text-primary: #E5E5E5;
+      --text-secondary: #A3A3A3;
+      --text-tertiary: #737373;
+      --text-quaternary: #525252;
+
+      --color-neon: #FF5F00;
+      --color-neon-light: #FF7F30;
+      --color-neon-glow: rgba(255, 95, 0, 0.5);
+    }
+
+    body {
+      background-color: var(--bg-base-black);
+      color: var(--text-primary);
+      font-family: 'Titillium Web', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-base-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-base);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-neon);
+    }
+
+    .neon-glow {
+      box-shadow: 0 0 10px var(--color-neon-glow);
+    }
+
+    .neon-text-glow {
+      text-shadow: 0 0 10px var(--color-neon-glow);
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
