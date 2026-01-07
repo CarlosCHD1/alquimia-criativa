@@ -106,11 +106,15 @@ import {
   Code,
   Database,
   Fingerprint,
-  Trash2
+  Trash2,
+  AlignLeft,
+  Volume2,
+  Menu
 } from 'lucide-react';
 
 
 export const Icons = {
+  Menu: Menu,
   Wand: Wand2,
   Image: ImageIcon,
   History: HistoryIcon,
@@ -218,5 +222,7 @@ export const Icons = {
   Code: Code,
   Database: Database,
   Fingerprint: Fingerprint,
-  Trash: Trash2
+  Trash: Trash2,
+  AlignLeft: AlignLeft,
+  Volume2: Volume2
 };

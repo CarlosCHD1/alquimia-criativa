@@ -10,30 +10,38 @@ const PLANS = [
     {
         name: 'Starter Pack',
         credits: 250,
-        price: '19,90',
-        link: 'https://pay.kiwify.com.br/xkMQJfr',
+        priceMonthly: '19,90',
+        priceAnnual: '199,90',
+        linkMonthly: 'https://pay.kiwify.com.br/xkMQJfr',
+        linkAnnual: 'https://pay.kiwify.com.br/xkMQJfr',
         features: ['Acesso a todas as ferramentas', '250 Créditos de Geração', 'Histórico Limitado', 'Suporte Básico'],
         highlight: false
     },
     {
         name: 'Pro Creator',
         credits: 750,
-        price: '49,90',
-        link: 'https://pay.kiwify.com.br/IgcHt7I',
+        priceMonthly: '49,90',
+        priceAnnual: '499,90',
+        linkMonthly: 'https://pay.kiwify.com.br/IgcHt7I',
+        linkAnnual: 'https://pay.kiwify.com.br/IgcHt7I',
         features: ['Melhor Custo-Benefício', '750 Créditos Mensais', 'Velocidade Prioritária', 'Acesso a Beta Features'],
         highlight: true
     },
     {
         name: 'Elite Studio',
         credits: 1800,
-        price: '99,90',
-        link: 'https://pay.kiwify.com.br/KPOP4Nq',
+        priceMonthly: '99,90',
+        priceAnnual: '999,90',
+        linkMonthly: 'https://pay.kiwify.com.br/KPOP4Nq',
+        linkAnnual: 'https://pay.kiwify.com.br/KPOP4Nq',
         features: ['Para Uso Profissional', '1800 Créditos', 'Suporte VIP via WhatsApp', 'Consultoria de Prompt Mensal'],
         highlight: false
     }
 ];
 
 const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
+    const [billingCycle, setBillingCycle] = React.useState<'monthly' | 'annual'>('monthly');
+
 
     const handleBuy = (link: string) => {
         window.open(link, '_blank');
@@ -543,7 +551,25 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                         <span className="text-neon font-mono text-sm tracking-widest uppercase">04 // Acesso VIP</span>
                     </div>
                     <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tighter">Comece a <span className="text-neon italic">Orquestrar.</span></h2>
-                    <p className="text-neutral-400 mb-16 max-w-lg mx-auto">Escolha o poder de processamento que sua criatividade exige. Acesso vitalício disponível por tempo limitado.</p>
+                    <p className="text-neutral-400 mb-16 max-w-lg mx-auto">Escolha o poder de processamento que sua criatividade exige. Planos flexíveis para sua jornada criativa.</p>
+
+                    <div className="flex justify-center mb-12">
+                        <div className="bg-[#0A0A0A] border border-white/10 p-1 rounded-full flex items-center relative cursor-pointer">
+                            <div className={`absolute top-1 bottom-1 w-[calc(50%-4px)] bg-neon rounded-full transition-all duration-300 ${billingCycle === 'monthly' ? 'left-1' : 'left-[calc(50%+4px)]'}`}></div>
+                            <button
+                                onClick={() => setBillingCycle('monthly')}
+                                className={`px-6 py-2 rounded-full text-xs font-bold transition-all relative z-10 ${billingCycle === 'monthly' ? 'text-black' : 'text-neutral-400 hover:text-white'}`}
+                            >
+                                Mensal
+                            </button>
+                            <button
+                                onClick={() => setBillingCycle('annual')}
+                                className={`px-6 py-2 rounded-full text-xs font-bold transition-all relative z-10 flex items-center gap-2 ${billingCycle === 'annual' ? 'text-black' : 'text-neutral-400 hover:text-white'}`}
+                            >
+                                Anual <span className={`text-[9px] px-1.5 py-0.5 rounded ${billingCycle === 'annual' ? 'bg-black/20 text-black border border-black/10' : 'bg-green-500/20 text-green-400 border border-green-500/30'}`}>-15%</span>
+                            </button>
+                        </div>
+                    </div>
 
                     <div className="grid md:grid-cols-3 gap-6 items-center lg:items-stretch max-w-5xl mx-auto"> {/* Reduced gap */}
                         {PLANS.map((plan) => (
@@ -570,9 +596,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                                         {plan.name}
                                     </h3>
                                     <div className="text-6xl font-bold text-white tracking-tighter">
-                                        <span className="text-2xl text-neutral-600 align-top mr-1 font-sans font-medium">R$</span>{plan.price}
+                                        <span className="text-2xl text-neutral-600 align-top mr-1 font-sans font-medium">R$</span>{billingCycle === 'monthly' ? plan.priceMonthly : plan.priceAnnual}
                                     </div>
-                                    <p className="text-neutral-500 text-xs mt-3 uppercase tracking-wider">pagamento único</p>
+                                    <p className="text-neutral-500 text-xs mt-3 uppercase tracking-wider">{billingCycle === 'monthly' ? 'mensalidade' : 'pagamento anual'}</p>
                                 </div>
 
                                 <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
@@ -590,7 +616,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                                 </ul>
 
                                 <button
-                                    onClick={() => handleBuy(plan.link)}
+                                    onClick={() => handleBuy(billingCycle === 'monthly' ? plan.linkMonthly : plan.linkAnnual)}
                                     className={`
                                         w-full py-4 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 group-hover:gap-3 uppercase tracking-widest
                                         ${plan.highlight
