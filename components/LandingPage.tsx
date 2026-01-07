@@ -70,10 +70,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                 <div className="max-w-[1400px] mx-auto h-full px-6 flex items-center justify-between">
                     {/* Logo */}
                     <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                        <div className="w-8 h-8 bg-neon/10 rounded-lg flex items-center justify-center border border-neon/20">
-                            <Icons.Zap className="text-neon w-4 h-4" />
-                        </div>
-                        <span className="font-bold tracking-tight text-white text-lg">Alquimia<span className="text-neon">Criativa</span></span>
+                        <img src="/logo-white.jpg" alt="Alquimia Criativa" className="h-8 w-auto object-contain" />
                     </div>
 
                     {/* Navigation Links - Centered */}
@@ -656,10 +653,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                 <div className="max-w-[1400px] mx-auto px-6">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-12 mb-16">
                         <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 bg-neon/10 rounded-lg flex items-center justify-center border border-neon/20">
-                                <Icons.Zap className="text-neon w-4 h-4" />
-                            </div>
-                            <span className="font-bold tracking-tight text-white text-lg">Alquimia<span className="text-neon">Criativa</span></span>
+                            <img src="/logo-white.jpg" alt="Alquimia Criativa" className="h-10 w-auto object-contain" />
                         </div>
 
                         <div className="flex gap-8 text-sm text-neutral-400">

@@ -59,9 +59,9 @@ const Auth: React.FC = () => {
                     >
                         <Icons.ArrowLeft className="w-5 h-5" />
                     </button>
-                    <h1 className="text-3xl font-bold bg-gradient-to-r from-neon to-orange-500 bg-clip-text text-transparent mb-2">
-                        Alquimia Criativa
-                    </h1>
+                    <div className="flex justify-center mb-4">
+                        <img src="/logo-white.jpg" alt="Alquimia Criativa" className="h-16 w-auto object-contain" />
+                    </div>
                     <p className="text-neutral-500 text-sm">Entre para forjar prompts de elite.</p>
                 </div>
 

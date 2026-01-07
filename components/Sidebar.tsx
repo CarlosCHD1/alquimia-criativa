@@ -104,10 +104,8 @@ const Sidebar: React.FC<SidebarProps> = ({ currentMode, setMode, isOpen, onClose
       >
         <div className="p-6 flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-neon to-orange-500 bg-clip-text text-transparent mb-1">
-              Alquimia Criativa
-            </h1>
-            <p className="text-xs text-neutral-400">AI Engineering Suite</p>
+            <img src="/logo-white.jpg" alt="Alquimia Criativa" className="h-12 w-auto mb-2 object-contain" />
+            <p className="text-xs text-neutral-400 pl-1">AI Engineering Suite</p>
           </div>
           {/* Mobile Close Button (Optional, can just click outside) */}
           <button onClick={onClose} className="md:hidden text-neutral-400 hover:text-white">
